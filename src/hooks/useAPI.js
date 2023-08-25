@@ -6,20 +6,26 @@ function useApi(url) {
   const [loadError, setLoadError] = useState(null);
 
   useEffect(() => {
+    //Added custome variable to clean previous data
+    let ignore = false;
     setLoading(true);
     setLoadError(null);
     fetch(url)
       .then((res) => res.json())
       .then((json) => {
-        setData(json);
-        setLoading(false);
-        // console.log(`${url} data is : ` + this.data);
+        if (!ignore) {
+          setData(json);
+          setLoading(false);
+        }
       })
       .catch((err) => {
         setLoadError(err);
         console.log(err);
         setLoading(false);
       });
+    return () => {
+      ignore = true;
+    };
   }, [url]);
 
   return { data, loading, loadError };
