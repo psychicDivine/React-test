@@ -5,6 +5,7 @@
  */
 import { useParams } from "react-router-dom";
 import useApi from "../hooks/useAPI";
+import AddToCart from "./AddToCart";
 
 const ProductShow = () => {
   const { productId } = useParams();
@@ -17,6 +18,7 @@ const ProductShow = () => {
         <div className="product-show-title">{data.title}</div>
         <div className="product-body product-show-body">
           <div className="product-show-price">$ {data.price}</div>
+          <AddToCart product={data} />
         </div>
       </div>
     </div>

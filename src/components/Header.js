@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import useApi from "../hooks/useAPI";
 import { Link } from "react-router-dom";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = ({ selectedCategory, setSelectedCategory }) => {
   const headerUrl = "https://fakestoreapi.com/products/categories";
@@ -37,6 +39,8 @@ const Header = ({ selectedCategory, setSelectedCategory }) => {
             {cat}
           </Link>
         ))}
+        <FontAwesomeIcon icon={faShoppingCart} />
+        <span className="cart-length">{}</span>
       </div>
     );
 };
