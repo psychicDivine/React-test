@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import AddToCart from "./AddToCart";
 
 const Product = ({ product }) => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Product = ({ product }) => {
       <img src={product.image} alt={product.title} />
       <div className="title">
         <p>{product.title}</p>
-        <span>${product.price}</span>
+        <AddToCart product={product} />
       </div>
     </div>
   );

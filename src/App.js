@@ -5,13 +5,15 @@ import NotFound from "./components/NotFound";
 
 import ProductList from "./components/ProductList";
 import ProductShow from "./components/ProductShow";
+import CartContextProvider from "./context/cart";
 import "./styles.css";
 
 export default function App() {
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("jewelery");
   console.log("app.js", selectedCategory);
   return (
     <div className="App">
+      <CartContextProvider>
       <div>
         <Header
           selectedCategory={selectedCategory}
@@ -30,6 +32,8 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      </CartContextProvider>
+
     </div>
   );
 }
