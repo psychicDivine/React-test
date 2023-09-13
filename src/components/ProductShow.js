@@ -16,7 +16,9 @@ const ProductShow = () => {
       <div className="product-show-description">
         <div className="product-show-title">{data.title}</div>
         <div className="product-body product-show-body">
-          <div className="product-show-price">$ {data.price}</div>
+          {/* <div className="product-show-price">$ {data.price}</div> */}
+                  <AddToCart product={product} />
+
         </div>
       </div>
     </div>

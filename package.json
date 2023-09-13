@@ -8,11 +8,20 @@
   ],
   "main": "src/index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@redux-devtools/extension": "3.2.5",
+    "font-awesome": "4.7.0",
     "loader-utils": "3.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "^6.15.0",
-    "react-scripts": "5.0.1"
+    "react-redux": "8.0.5",
+    "react-router": "6.9.0",
+    "react-router-dom": "6.10.0",
+    "react-scripts": "5.0.1",
+    "redux": "4.2.1",
+    "redux-thunk": "2.4.2"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
