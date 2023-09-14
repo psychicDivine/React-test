@@ -4,13 +4,20 @@ import Product from "./Product";
 
 const ProductList = ({ defaultSelectedCategory }) => {
   const { category } = useParams();
-  const selectedCategory = category || defaultSelectedCategory;
+  const selectedCategory = category || defaultSelectedCategory || "defaultCategory";
   const productListUrls = `https://fakestoreapi.com/products/category/${selectedCategory}`;
   const { data, loading, loadError } = useApi(productListUrls);
 
-  if (loading) return <div className="loading">loading Products...</div>;
-  else if (loadError) return <div>oopes error on ProductList</div>;
-  else
+  if (loading) {
+    // Use a loading spinner instead of plain text
+    return <div className="loading-spinner">Loading Products...</div>;
+  } else if (loadError) {
+    // Provide a user-friendly error message
+    return <div>Error loading products. Please try again later.</div>;
+  } else if (data.length === 0) {
+    // Handle the case when no products are found
+    return <div>No products found in this category.</div>;
+  } else {
     return (
       <div className="products">
         {data.map((product) => (
@@ -18,6 +25,7 @@ const ProductList = ({ defaultSelectedCategory }) => {
         ))}
       </div>
     );
+  }
 };
 
 export default ProductList;
